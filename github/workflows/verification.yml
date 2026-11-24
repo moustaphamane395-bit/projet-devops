@@ -1,0 +1,22 @@
+
+name: Verification de mon projet
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  verification:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+
+      - name: Verifier les fichiers du projet
+        run: |
+          echo "Verification du projet..."
+          test -f index.html
+          test -f style.css
+          echo "Tous les fichiers sont presents !"
